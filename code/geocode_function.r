@@ -42,16 +42,16 @@ f_geocode <- function(i,data,address_var,city_var) {
                                                                         # Geocode for the third time
                                                                         Sys.sleep(5)   
                                                                         google <- ggmap::geocode(address,output="latlon",source="google")
-                                                                        df[1,5] <- google[1]
-                                                                        df[1,6] <- google[2]
+                                                                        df[1,grep("lon_google",colnames(df))] <- google[1]
+                                                                        df[1,grep("lat_google",colnames(df))] <- google[2]
                                                                         return(df)
                                                                         
                                             }
                                             
                                             # If it was geocoded on the second try
                                             else {
-                                                  df[1,5] <- google[1]
-                                                  df[1,6] <- google[2]
+                                                  df[1,grep("lon_google",colnames(df))] <- google[1]
+                                                  df[1,grep("lat_google",colnames(df))] <- google[2]
                                                   return(df)
                                                   }
                                             
@@ -60,8 +60,8 @@ f_geocode <- function(i,data,address_var,city_var) {
              
              # If it was geocoded on the first try
              else {
-                   df[1,5] <- google[1]
-                   df[1,6] <- google[2]
+                   df[1,grep("lon_google",colnames(df))] <- google[1]
+                   df[1,grep("lat_google",colnames(df))] <- google[2]
                    return(df)
              }
 }
