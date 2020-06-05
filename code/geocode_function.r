@@ -67,7 +67,7 @@ f_geocode <- function(i,data,address_var,city_var) {
 }
 
 # To apply function
-providers <- lapply(1:10, function(x) f_geocode(i = x ,data = providers , address_var = "direccion1" , city_var = "depa_nombre" )) %>% 
+providers <- lapply(1:nrow(providers), function(x) f_geocode(i = x ,data = providers , address_var = "direccion1" , city_var = "depa_nombre" )) %>% 
              data.table::rbindlist(use.names = T,fill = T) %>% data.frame() 
   
 # Save database
