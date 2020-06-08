@@ -11,7 +11,7 @@ options("scipen"=100, "digits"=4) # Force R not to use e +
 load("data/originals/providers.Rdata")
 providers <- providers[1:10,]
 
-# You can get the Google key here: https://cloud.google.com/docs/authentication/api-keys
+# You can get the Google key here: https://developers.google.com/maps/documentation/geocoding/get-api-key?hl=es
 register_google(key = "Write the appy key here") 
 
 # Geocode Fucntion 
